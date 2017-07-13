@@ -17,7 +17,7 @@ project( TudatBundle )
 option(USE_CSPICE   "Build CSPICE libary, tudat with SPICE support and example applications." ON)
 option(USE_JSONCPP  "Build JSONCPP library and example applications." OFF)
 option(USE_NRLMSISE00 "Build NRLMISE-00 library and tudat with NRLMSISE support." ON)
-option(USE_PAGMO    "Build PaGMO library." OFF)
+option(USE_PAGMO    "Build PaGMO library." ON)
 option(USE_PYGMO    "Build PaGMO library with Python bindings." OFF)
 
 # Set root-directory for code to current source directory.
@@ -44,9 +44,12 @@ endif()
 if(USE_PYGMO)
   list(APPEND BoostComponents python python3)
 endif()
+
 # Pick a boost version
-set(BoostVersion 1.60.0)
-set(BoostSHA1 7f56ab507d3258610391b47fef6b11635861175a)
+set(BoostVersion 1.63.0)
+set(BoostSHA1 9f1dd4fa364a3e3156a77dc17aa562ef06404ff6)
+#set(BoostVersion 1.60.0)
+#set(BoostSHA1 7f56ab507d3258610391b47fef6b11635861175a)
 # set(BoostVersion 1.57.0)
 # set(BoostSHA1 e151557ae47afd1b43dc3fac46f8b04a8fe51c12)
 # set(BoostVersion 1.53.0)
@@ -54,7 +57,7 @@ set(BoostSHA1 7f56ab507d3258610391b47fef6b11635861175a)
 # set(BoostVersion 1.48.0)
 # set(BoostSHA1 27aced5086e96c6f7b2b684bda2bd515e115da35)
 # Build boost
-# include(add_boost)
+ include(add_boost)
 
 #
 # SPICE
@@ -91,8 +94,8 @@ endif()
 # Add the PaGMO project and build
 if(USE_PAGMO)
   OPTION(BUILD_PYGMO    "Build PaGMO with Python bindings." ${USE_PYGMO})
-  OPTION(ENABLE_TESTS   "Build PaGMO with test set."        OFF)
-  OPTION(BUILD_EXAMPLES "Build PaGMO with examples."        OFF)
+  OPTION(ENABLE_TESTS   "Build PaGMO with test set."        ON)
+  OPTION(BUILD_EXAMPLES "Build PaGMO with examples."        ON)
   set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/pagmo/lib"
     CACHE PATH "Path for building static PaGMO library in.")
   set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/pagmo/lib"
@@ -110,7 +113,7 @@ endif()
 #
 set(TUDAT_BUILD_DIR "${PROJECTROOT}/tudat")
 add_subdirectory( "${PROJECTROOT}/tudat/Tudat/")
-# add_subdirectory( "${PROJECTROOT}/tudatApplications/")
+add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/test/")
 add_subdirectory( "${PROJECTROOT}/tudatExampleApplications/satellitePropagatorExamples/SatellitePropagatorExamples/")
 if(USE_CSPICE AND USE_JSONCPP)
   add_subdirectory( "${PROJECTROOT}/tudatExampleApplications/libraryExamples/SpiceAndJSON/")
@@ -119,9 +122,9 @@ if(USE_PAGMO)
   add_subdirectory( "${PROJECTROOT}/tudatExampleApplications/libraryExamples/PaGMOEx/")
 endif()
 add_subdirectory( "${PROJECTROOT}/tudatExampleApplications/templateApplication/TemplateApplication")
-add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/spaceProjectAssignment1")
-add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/spaceProjectAssignment2")
-add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/semi_controlled_entry")
-add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/semi_controlled_entry_ex_based")
+#add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/test")
+#add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/spaceProjectAssignment2")
+#add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/semi_controlled_entry")
+#add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/semi_controlled_entry_ex_based")
 
 
