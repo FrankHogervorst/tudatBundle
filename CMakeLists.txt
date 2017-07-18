@@ -19,6 +19,7 @@ option(USE_JSONCPP  "Build JSONCPP library and example applications." OFF)
 option(USE_NRLMSISE00 "Build NRLMISE-00 library and tudat with NRLMSISE support." ON)
 option(USE_PAGMO    "Build PaGMO library." ON)
 option(USE_PYGMO    "Build PaGMO library with Python bindings." OFF)
+option(USE_GDAL     "Build GDAL library." ON)
 
 # Set root-directory for code to current source directory.
 set(PROJECTROOT "${CMAKE_CURRENT_SOURCE_DIR}/")
@@ -28,7 +29,7 @@ enable_testing( )
 # Set the flag to force to use include_directories macro on Apple too
 option(APPLE_INCLUDE_FORCE "Force include_directories on Apple too." ON)
 
-# Let CMake find our custom cmake modules/scritpts
+# Let CMake find our custom cmake modules/scripts
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/external/CMake")
 
 #
@@ -57,7 +58,7 @@ set(BoostSHA1 9f1dd4fa364a3e3156a77dc17aa562ef06404ff6)
 # set(BoostVersion 1.48.0)
 # set(BoostSHA1 27aced5086e96c6f7b2b684bda2bd515e115da35)
 # Build boost
- include(add_boost)
+include(add_boost)
 
 #
 # SPICE
@@ -106,6 +107,15 @@ if(USE_PAGMO)
   unset(CMAKE_ARCHIVE_OUTPUT_DIRECTORY CACHE)
   unset(CMAKE_LIBRARY_OUTPUT_DIRECTORY CACHE)
   unset(CMAKE_RUNTIME_OUTPUT_DIRECTORY CACHE)
+endif()
+
+#
+# GDAL
+#
+# Add the GDAL project and build
+if(USE_GDAL)
+    message(STATUS "inside USE_GDAL if statement")
+    add_subdirectory("${PROJECTROOT}/gdal/")
 endif()
 
 #
