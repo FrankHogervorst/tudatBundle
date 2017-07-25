@@ -19,7 +19,6 @@ option(USE_JSONCPP  "Build JSONCPP library and example applications." OFF)
 option(USE_NRLMSISE00 "Build NRLMISE-00 library and tudat with NRLMSISE support." ON)
 option(USE_PAGMO    "Build PaGMO library." ON)
 option(USE_PYGMO    "Build PaGMO library with Python bindings." OFF)
-option(USE_GDAL     "Build GDAL library." ON)
 
 # Set root-directory for code to current source directory.
 set(PROJECTROOT "${CMAKE_CURRENT_SOURCE_DIR}/")
