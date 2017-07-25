@@ -134,7 +134,7 @@ endif()
 add_subdirectory( "${PROJECTROOT}/tudatExampleApplications/templateApplication/TemplateApplication")
 #add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/test")
 #add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/spaceProjectAssignment2")
-#add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/semi_controlled_entry")
+add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/semi_controlled_entry")
 #add_subdirectory( "${PROJECTROOT}/tudatApplications/thesis/semi_controlled_entry_ex_based")
 
 
