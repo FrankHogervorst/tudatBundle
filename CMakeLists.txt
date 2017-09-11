@@ -94,8 +94,8 @@ endif()
 # Add the PaGMO project and build
 if(USE_PAGMO)
   OPTION(BUILD_PYGMO    "Build PaGMO with Python bindings." ${USE_PYGMO})
-  OPTION(ENABLE_TESTS   "Build PaGMO with test set."        ON)
-  OPTION(BUILD_EXAMPLES "Build PaGMO with examples."        ON)
+  OPTION(ENABLE_TESTS   "Build PaGMO with test set."        OFF)
+  OPTION(BUILD_EXAMPLES "Build PaGMO with examples."        OFF)
   set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/pagmo/lib"
     CACHE PATH "Path for building static PaGMO library in.")
   set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/pagmo/lib"
@@ -106,15 +106,6 @@ if(USE_PAGMO)
   unset(CMAKE_ARCHIVE_OUTPUT_DIRECTORY CACHE)
   unset(CMAKE_LIBRARY_OUTPUT_DIRECTORY CACHE)
   unset(CMAKE_RUNTIME_OUTPUT_DIRECTORY CACHE)
-endif()
-
-#
-# GDAL
-#
-# Add the GDAL project and build
-if(USE_GDAL)
-    message(STATUS "inside USE_GDAL if statement")
-    add_subdirectory("${PROJECTROOT}/gdal/")
 endif()
 
 #
